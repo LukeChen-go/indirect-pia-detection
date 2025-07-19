@@ -60,7 +60,7 @@ DS_SKIP_CUDA_CHECK=1 deepspeed --include localhost:0 \
     --master_port 1145  train.py \
     --model_name_or_path meta-llama/Llama-3.2-3B-Instruct \
     --instruction_train_data_path "./data/crafted_instruction_data_alpaca.json" \
-    --context_train_data_path "./data/crafted_instruction_data_context.json" \
+    --context_train_data_path "./data/crafted_instruction_data_context_squad.json" \
     --eval_data_path "./data/crafted_instruction_data_squad_injection_qa.json" \
     --bf16 --save_path ./ckpt/ext-llama32-3b \
     --max_epochs 1 \
@@ -91,7 +91,7 @@ python run_detection.py \
     --log_path squad_logs/trained_deberta-detection.txt
 ```
 
-To evaluate the extraction performance, you can use the following command:
+To evaluate the removal performance, you can use the following command as am example:
 
 ```angular2html
 python run_purify.py \
@@ -118,7 +118,7 @@ python run_evaluation_instruction.py \
     --data_path ./data/crafted_instruction_data_tri_injection_qa.json \
     --attack naive ignore escape_separation completion_real completion_realcmb  \
     --defense filter \
-    --log_path llama3_logs/acc_tri_filter_deberta.txt \
+    --log_path llama3_logs/asr_tri_filter_deberta.txt \
     --injection_type adv \
     --purify_method cls \
     --side start middle end
