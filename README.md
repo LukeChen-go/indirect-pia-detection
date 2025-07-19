@@ -83,12 +83,12 @@ python run_detection.py \
     --model_path \
     ./ckpt/prompt-discriminative-cls-deberta \
     --user_data_path \
-    ./data/crafted_instruction_data_squad_injection_qa.json \
+    ./data/crafted_instruction_data_tri_injection_qa.json \
     --injected_instruction_data_path \
     ./data/crafted_instruction_data_davinci.json \
     --attack none naive ignore escape_separation completion_real completion_realcmb \
     --sides start middle end \
-    --log_path squad_logs/trained_deberta-detection.txt
+    --log_path tri_logs/trained_deberta_detection.txt
 ```
 
 To evaluate the removal performance, you can use the following command as am example:
@@ -98,12 +98,12 @@ python run_purify.py \
     --model_path ./ckpt/prompt-discriminative-cls-deberta \
     --ext_model_path ./ckpt/ext-llama32-3b \
     --user_data_path \
-    ./data/crafted_instruction_data_squad_injection_qa.json \
+    ./data/crafted_instruction_data_tri_injection_qa.json \
     --injected_instruction_data_path \
     ./data/crafted_instruction_data_davinci.json \
     --attack naive ignore escape_separation completion_real completion_realcmb \
     --sides start middle end \
-    --log_path squad_logs/purify-extraction-llama32.txt \
+    --log_path tri_logs/purify_extraction_llama32.txt \
     --purify_method ext
 ```
 
