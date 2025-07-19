@@ -82,7 +82,6 @@ def test(args):
                     filter_bot=filter_bot,
                     side=s,
                     purify_method=args.purify_method,
-                    trigger = args.trigger
 
                 )
                 for i in tqdm.tqdm(range(len(llm_input))):
